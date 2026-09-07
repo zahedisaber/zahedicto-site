@@ -6,17 +6,29 @@ Plain HTML/CSS/vanilla JS — no build step, no framework, no CMS.
 ## Structure
 
 ```
-index.html      خانه — homepage, local-SEO focused
-about.html      درباره ما
-services.html   خدمات ترجمه رسمی
-faq.html        سوالات متداول (+ FAQPage schema)
-contact.html    تماس با ما (+ map embed)
-404.html        custom not-found page
-styles.css      shared stylesheet
-nav.js          mobile-nav toggle only
-assets/logo.svg placeholder logo — swap for the real one (see TODO)
+index.html                              خانه — homepage, local-SEO focused
+about.html                              درباره ما
+services.html                           خدمات ترجمه رسمی
+blog.html                               مقالات — index of articles below
+birth-certificate-translation.html      article: شناسنامه ترجمه رسمی
+official-vs-unofficial-translation.html article: ترجمه رسمی vs غیررسمی
+faq.html                                سوالات متداول (+ FAQPage schema)
+contact.html                            تماس با ما (+ map embed)
+404.html                                custom not-found page
+styles.css                              shared stylesheet
+nav.js                                  mobile-nav toggle only
+assets/logo.svg                         placeholder logo — swap for the real one (see TODO)
+assets/og-image.png                     social-share preview card (og:image / twitter:card)
 robots.txt، sitemap.xml
 ```
+
+Every indexable page carries: unique title/meta description (length-checked
+for SERP display), canonical URL, Open Graph + Twitter Card tags (including
+the share image), font `preconnect` + `<link>` (not CSS `@import`, for
+faster first paint), and JSON-LD structured data — `LocalBusiness` +
+`ProfessionalService` on the homepage, `Service` on services.html,
+`FAQPage` on faq.html, `Article` (with `datePublished`) on the two
+articles, and `BreadcrumbList` on every inner page.
 
 ## Preview locally
 
@@ -37,8 +49,9 @@ python3 -m http.server 8080
 
 ## After launch — do these once it's live
 
-- [ ] **Google Search Console**: add `zahedicto.ir` as a property, verify via the DNS TXT record method (Cloudflare DNS makes this a one-paste step), then submit `https://zahedicto.ir/sitemap.xml`.
-- [ ] **Google Business Profile**: make sure the website field points to `https://zahedicto.ir/`.
+- [x] **Live on Cloudflare Pages**, custom domain `zahedicto.ir` attached and serving over HTTPS.
+- [x] **Google Search Console**: property verified (HTML-file method), `sitemap.xml` submitted.
+- [ ] **Google Business Profile**: make sure the website field points to `https://zahedicto.ir/`, and work through the category/photos/posts checklist discussed separately.
 - [ ] **Instagram bio** (`@zahedicto`): link to `https://zahedicto.ir/`.
 
 ## Outstanding TODOs (content, not code)
