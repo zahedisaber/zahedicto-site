@@ -2,8 +2,9 @@
    دفتر ترجمه رسمی دادگستری دکتر زاهدی — zahedicto.ir
    Shared stylesheet — plain CSS, no framework/CDN dependency.
    ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;900&display=swap');
+/* Font is loaded via <link rel="stylesheet"> in each page's <head>
+   (with preconnect hints) rather than @import here, so the browser
+   can discover and fetch it in parallel instead of after this file. */
 
 :root{
   --navy:#0b1f3a;
