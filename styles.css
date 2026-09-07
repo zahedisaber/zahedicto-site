@@ -1,0 +1,215 @@
+/* ============================================================
+   دفتر ترجمه رسمی دادگستری دکتر زاهدی — zahedicto.ir
+   Shared stylesheet — plain CSS, no framework/CDN dependency.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;900&display=swap');
+
+:root{
+  --navy:#0b1f3a;
+  --navy-light:#12294f;
+  --gold:#b8902e;
+  --gold-light:#d9b658;
+  --ink:#1a1f27;
+  --muted:#5b6472;
+  --bg:#faf8f4;
+  --card:#ffffff;
+  --border:#e7e2d8;
+  --radius:14px;
+  --shadow:0 4px 18px rgba(11,31,58,0.08);
+  --max:1120px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.85;
+  font-size:16px;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-weight:800;line-height:1.4;margin:0 0 .6em;color:var(--navy);}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);}
+h3{font-size:1.15rem;}
+p{margin:0 0 1em;color:var(--ink);}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px;}
+.muted{color:var(--muted);}
+.section{padding:56px 0;}
+.section-alt{background:#f3efe6;}
+
+/* ── skip link ── */
+.skip-link{
+  position:absolute;right:-999px;top:auto;
+  background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;z-index:200;
+}
+.skip-link:focus{right:16px;top:16px;}
+
+/* ── header ── */
+.site-header{
+  background:var(--navy);
+  color:#fff;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:14px;padding-bottom:14px;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;}
+.brand-logo{width:40px;height:40px;flex:none;}
+.brand-text strong{display:block;font-size:1.05rem;font-weight:800;}
+.brand-text span{display:block;font-size:.72rem;color:#c7cee0;font-weight:400;}
+
+.nav-toggle{
+  display:none;background:none;border:1px solid rgba(255,255,255,.35);
+  color:#fff;border-radius:8px;padding:8px 10px;font-size:1.1rem;cursor:pointer;
+}
+.main-nav ul{list-style:none;display:flex;gap:6px;margin:0;padding:0;}
+.main-nav a{
+  display:inline-block;padding:9px 14px;border-radius:8px;
+  text-decoration:none;font-weight:600;font-size:.95rem;color:#e9ecf5;
+  transition:background .15s;
+}
+.main-nav a:hover,.main-nav a[aria-current="page"]{background:rgba(255,255,255,.12);color:#fff;}
+.nav-cta{
+  background:var(--gold);color:var(--navy)!important;font-weight:800!important;
+}
+.nav-cta:hover{background:var(--gold-light);}
+
+/* ── hero ── */
+.hero{
+  background:linear-gradient(160deg,var(--navy) 0%,var(--navy-light) 60%,#173259 100%);
+  color:#fff;padding:64px 0 56px;
+}
+.hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+.hero h1{color:#fff;}
+.hero p.lead{color:#d7dcec;font-size:1.08rem;max-width:52ch;}
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px;}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
+  padding:7px 12px;border-radius:999px;font-size:.85rem;color:#f1f3fa;
+}
+.badge b{color:var(--gold-light);}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 22px;border-radius:10px;font-weight:800;text-decoration:none;
+  font-size:.98rem;border:2px solid transparent;cursor:pointer;
+}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{border-color:rgba(255,255,255,.5);color:#fff;}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy-light);}
+
+.hero-card{
+  background:#fff;color:var(--ink);border-radius:var(--radius);
+  padding:24px;box-shadow:0 18px 40px rgba(0,0,0,.25);
+}
+.hero-card h3{margin-bottom:14px;}
+.hero-card ul{margin:0;padding-inline-start:20px;color:var(--muted);}
+.hero-card li{margin-bottom:8px;}
+.rating-line{display:flex;align-items:center;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
+.stars{color:var(--gold);font-size:1.1rem;letter-spacing:2px;}
+
+/* ── cards / grids ── */
+.grid{display:grid;gap:20px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);
+}
+.card .icon{font-size:1.6rem;margin-bottom:10px;}
+.doc-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.doc-list li{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:12px 14px;font-weight:600;font-size:.95rem;display:flex;gap:8px;align-items:center;
+}
+.doc-list li::before{content:"✓";color:var(--gold);font-weight:900;}
+
+/* ── section header ── */
+.section-head{max-width:70ch;margin-bottom:32px;}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-weight:800;font-size:.82rem;
+  letter-spacing:.03em;margin-bottom:8px;
+}
+
+/* ── FAQ ── */
+.faq details{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:16px 20px;margin-bottom:12px;
+}
+.faq summary{
+  cursor:pointer;font-weight:700;list-style:none;display:flex;
+  justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";font-size:1.4rem;color:var(--gold);flex:none;}
+.faq details[open] summary::after{content:"−";}
+.faq p{margin-top:12px;color:var(--muted);}
+
+/* ── contact / map ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+.info-list{list-style:none;margin:0;padding:0;}
+.info-list li{
+  display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);
+}
+.info-list li:last-child{border-bottom:none;}
+.info-list .ic{font-size:1.3rem;flex:none;}
+.map-embed{
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);
+  box-shadow:var(--shadow);min-height:320px;background:#eee;
+}
+.map-embed iframe{width:100%;height:100%;min-height:320px;border:0;display:block;}
+
+/* ── footer ── */
+.site-footer{background:var(--navy);color:#c7cee0;padding:40px 0 22px;margin-top:60px;}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;margin-bottom:28px;}
+.site-footer h4{color:#fff;font-size:1rem;margin-bottom:12px;}
+.site-footer a{color:#c7cee0;text-decoration:none;}
+.site-footer a:hover{color:#fff;}
+.footer-list{list-style:none;margin:0;padding:0;}
+.footer-list li{margin-bottom:8px;font-size:.92rem;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);padding-top:18px;
+  font-size:.82rem;color:#8f9ab6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+
+/* ── breadcrumb ── */
+.breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:18px;}
+.breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
+
+/* ── page hero (inner pages) ── */
+.page-hero{background:var(--navy);color:#fff;padding:44px 0;}
+.page-hero h1{color:#fff;margin-bottom:8px;}
+.page-hero p{color:#d7dcec;margin:0;max-width:60ch;}
+
+/* ── responsive ── */
+@media (max-width:860px){
+  .hero .container{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .nav-toggle{display:inline-block;}
+  .main-nav{
+    display:none;position:absolute;inset-inline:0;top:100%;background:var(--navy);
+    padding:10px 20px 18px;box-shadow:0 10px 20px rgba(0,0,0,.2);
+  }
+  .main-nav.open{display:block;}
+  .main-nav ul{flex-direction:column;}
+  .grid-3{grid-template-columns:1fr;}
+  .doc-list{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .badge-row{gap:8px;}
+}
