@@ -217,4 +217,17 @@ p{margin:0 0 1em;color:var(--ink);}
   .doc-list{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
   .badge-row{gap:8px;}
+  .brand-text span{display:none;}          /* drop the tagline, keep just the name, so it never fights the hamburger for space */
+  .hero{padding:40px 0 32px;}              /* get to the CTA faster on a small screen */
+  .page-hero{padding:32px 0;}
+  .btn{padding:11px 16px;font-size:.9rem;} /* multi-button rows (contact, NAATI CTA) fit without cramming */
+  .mobile-call-fab{
+    display:flex;align-items:center;justify-content:center;
+    position:fixed;bottom:18px;left:18px;z-index:90;
+    width:56px;height:56px;border-radius:50%;
+    background:var(--gold);color:var(--navy);
+    font-size:1.5rem;text-decoration:none;
+    box-shadow:0 8px 20px rgba(11,31,58,.35);
+  }
 }
+.mobile-call-fab{display:none;}
