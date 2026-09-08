@@ -57,7 +57,7 @@ python3 -m http.server 8080
 ## Outstanding TODOs (content, not code)
 
 - [ ] **Logo**: `assets/logo.svg` is a placeholder. Send the real logo file (as an attachment, not pasted inline) and it'll be swapped in — ideally also as SVG for crisp rendering at any size.
-- [ ] **Map embed**: `contact.html` and `index.html` use a generic street-name map query. Replace the `<iframe src="...">` with the real embed from your Google Business Profile: open the listing on Google Maps → **Share → Embed a map** → copy that `<iframe>` in.
-- [ ] **Confirm address/phone**: pulled from a public judiciary directory listing — please double-check `کرمان، خیابان فیروزه، نبش کوچه ۶، طبقه ۲، واحد ۶` and `۰۳۴-۳۲۵۳۲۱۴۲` / `۰۹۱۳-۰۱۱۹۶۰۸` are still current.
+- [x] **Map embed**: `contact.html` and `index.html` now use the real Google Business Profile embed, pinned to the exact building (30.2830°N, 57.0474°E).
+- [x] **Address/phone confirmed**: updated to خیابان فیروزه، بین فیروزه ۴ و ۶، ساختمان ایرانیان (بلوک B)، طبقه اول، واحد ۲ and 03432532141. Mobile (09130119608) unconfirmed but unchanged.
 - [ ] **Real photos**: office front (with the license plaque), workspace — replace the current text-only sections with `<img>`s once you have them.
 - [ ] **Pricing**: currently the site points to the judiciary's approved tariff rather than quoting numbers. Say the word if you'd rather list actual prices.
