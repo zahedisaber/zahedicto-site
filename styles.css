@@ -109,6 +109,10 @@ p{margin:0 0 1em;color:var(--ink);}
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
 .btn-navy{background:var(--navy);color:#fff;}
 .btn-navy:hover{background:var(--navy-light);}
+.btn-whatsapp{background:#25D366;color:#fff;}
+.btn-whatsapp:hover{background:#1ebe5b;}
+.btn-telegram{background:#229ED9;color:#fff;}
+.btn-telegram:hover{background:#1c8ac2;}
 
 .hero-card{
   background:#fff;color:var(--ink);border-radius:var(--radius);
