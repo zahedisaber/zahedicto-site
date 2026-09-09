@@ -17,7 +17,7 @@ contact.html                            تماس با ما (+ map embed)
 404.html                                custom not-found page
 styles.css                              shared stylesheet
 nav.js                                  mobile-nav toggle only
-assets/logo.svg                         placeholder logo — swap for the real one (see TODO)
+assets/logo.svg                         real logo — navy/gold "Z" mark, vectorized from the owner's source file
 assets/og-image.png                     social-share preview card (og:image / twitter:card)
 robots.txt، sitemap.xml
 ```
@@ -56,7 +56,7 @@ python3 -m http.server 8080
 
 ## Outstanding TODOs (content, not code)
 
-- [ ] **Logo**: `assets/logo.svg` is a placeholder. Send the real logo file (as an attachment, not pasted inline) and it'll be swapped in — ideally also as SVG for crisp rendering at any size.
+- [x] **Logo**: real logo in place — `assets/logo.svg`, vectorized (navy background, gold "Z" mark) from the owner's source file, used in the header and favicon on every page. `assets/og-image.png` (the social-share card) still has the old placeholder mark baked in — worth regenerating with the real logo when there's time.
 - [x] **Map embed**: `contact.html` and `index.html` now use the real Google Business Profile embed, pinned to the exact building (30.2830°N, 57.0474°E).
 - [x] **Address/phone confirmed**: updated to خیابان فیروزه، بین فیروزه ۴ و ۶، ساختمان ایرانیان (بلوک B)، طبقه اول، واحد ۲ and 03432532141. Mobile (09130119608) unconfirmed but unchanged.
 - [ ] **Real photos**: office front (with the license plaque), workspace — replace the current text-only sections with `<img>`s once you have them.

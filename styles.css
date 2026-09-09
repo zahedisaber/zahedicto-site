@@ -81,7 +81,7 @@ p{margin:0 0 1em;color:var(--ink);}
   padding-top:14px;padding-bottom:14px;gap:16px;
 }
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;}
-.brand-logo{width:40px;height:40px;flex:none;}
+.brand-logo{height:32px;width:auto;flex:none;}
 .brand-text strong{display:block;font-size:1.05rem;font-weight:800;}
 .brand-text span{display:block;font-size:.72rem;color:#c7cee0;font-weight:400;}
 
