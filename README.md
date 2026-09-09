@@ -56,7 +56,7 @@ python3 -m http.server 8080
 
 ## Outstanding TODOs (content, not code)
 
-- [x] **Logo**: real logo in place — `assets/logo.svg`, vectorized (navy background, gold "Z" mark) from the owner's source file, used in the header and favicon on every page. `assets/og-image.png` (the social-share card) still has the old placeholder mark baked in — worth regenerating with the real logo when there's time.
+- [x] **Logo**: real logo in place — `assets/logo.svg`, vectorized (navy background, gold "Z" mark) from the owner's source file, used in the header, favicon, and `assets/og-image.png` (social-share card).
 - [x] **Map embed**: `contact.html` and `index.html` now use the real Google Business Profile embed, pinned to the exact building (30.2830°N, 57.0474°E).
 - [x] **Address/phone confirmed**: updated to خیابان فیروزه، بین فیروزه ۴ و ۶، ساختمان ایرانیان (بلوک B)، طبقه اول، واحد ۲ and 03432532141. Mobile (09130119608) unconfirmed but unchanged.
 - [ ] **Real photos**: office front (with the license plaque), workspace — replace the current text-only sections with `<img>`s once you have them.
