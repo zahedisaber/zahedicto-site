@@ -140,6 +140,28 @@ p{margin:0 0 1em;color:var(--ink);}
 }
 .doc-list li::before{content:"✓";color:var(--gold);font-weight:900;}
 
+/* ── reviews carousel ── */
+.reviews-scroll{
+  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 4px 14px;margin:0 -4px;-webkit-overflow-scrolling:touch;
+}
+.reviews-scroll::-webkit-scrollbar{height:8px;}
+.reviews-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.review-card{
+  flex:0 0 300px;scroll-snap-align:start;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;
+}
+.review-card .stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:10px;}
+.review-card p{color:var(--ink);font-size:.92rem;flex:1;margin-bottom:16px;}
+.review-author{display:flex;align-items:center;gap:10px;}
+.review-avatar{
+  width:36px;height:36px;border-radius:50%;flex:none;
+  background:var(--navy);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.review-author strong{display:block;font-size:.88rem;}
+
 /* ── section header ── */
 .section-head{max-width:70ch;margin-bottom:32px;}
 .eyebrow{
@@ -216,6 +238,7 @@ p{margin:0 0 1em;color:var(--ink);}
   .grid-3{grid-template-columns:1fr;}
   .doc-list{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
+  .review-card{flex-basis:260px;}
   .badge-row{gap:8px;}
   .brand-text span{display:none;}          /* drop the tagline, keep just the name, so it never fights the hamburger for space */
   .hero{padding:40px 0 32px;}              /* get to the CTA faster on a small screen */
