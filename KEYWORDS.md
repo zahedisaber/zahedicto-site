@@ -39,6 +39,11 @@ periodically as volume grows and more individual queries clear the threshold.
 | راهنمای کامل ترجمه رسمی مدارک کرمان (pillar/hub term) | official-translation-guide-kerman.html |
 | دارالترجمه رسمی کرمان / خدمات ترجمه رسمی (broad head term) | services.html, index.html |
 | دارالترجمه رفسنجان، سیرجان، جیرفت، زرند، بافت، شهربابک (province-wide, mail/courier intent) | translation-for-kerman-province-cities.html — also in `areaServed` schema on index.html, services.html, naati page |
+| ترجمه فوری کرمان (express translation) | services.html service card + homepage badge + `serviceType` schema |
+| ترجمه شفاهی کرمان (interpretation) | services.html service card + `serviceType` schema |
+| تأییدات دادگستری و امور خارجه (attestation, as its own explicit service) | services.html service card + `serviceType` schema |
+| پیک و ارسال مدارک (courier, standalone service not just province-specific) | services.html service card |
+| ترجمه مدارک برای مهاجرت، تحصیل و کار (purpose-framed intent) | services.html intro paragraph |
 
 ## Content gaps — candidate next topics
 
@@ -49,6 +54,8 @@ cards still without an article link):
 - [ ] وکالت‌نامه و اقرارنامه (power of attorney)
 - [ ] گواهی اشتغال به کار / اسناد بانکی (employment certificate, bank documents)
 - [ ] سند مالکیت خودرو (برگ سبز) (vehicle deed) — not on services.html yet either, worth adding as a card + article
+- [ ] ترجمه فوری کرمان — has a service card now (2026-09-10) but no dedicated article yet
+- [ ] ترجمه شفاهی کرمان — has a service card now (2026-09-10) but no dedicated article yet
 
 ## Notes
 
