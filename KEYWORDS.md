@@ -38,6 +38,7 @@ periodically as volume grows and more individual queries clear the threshold.
 | ترجمه رسمی سند ازدواج و طلاق | marriage-certificate-translation.html |
 | راهنمای کامل ترجمه رسمی مدارک کرمان (pillar/hub term) | official-translation-guide-kerman.html |
 | دارالترجمه رسمی کرمان / خدمات ترجمه رسمی (broad head term) | services.html, index.html |
+| دارالترجمه رفسنجان، سیرجان، جیرفت، زرند، بافت، شهربابک (province-wide, mail/courier intent) | translation-for-kerman-province-cities.html — also in `areaServed` schema on index.html, services.html, naati page |
 
 ## Content gaps — candidate next topics
 
