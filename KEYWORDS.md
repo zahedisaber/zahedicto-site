@@ -46,16 +46,16 @@ periodically as volume grows and more individual queries clear the threshold.
 | ترجمه مدارک برای مهاجرت، تحصیل و کار (purpose-framed intent) | services.html intro paragraph |
 | ترجمه رسمی ریزنمرات و دانشنامه | academic-transcript-translation-kerman.html |
 | ترجمه رسمی وکالت‌نامه و اقرارنامه | power-of-attorney-translation-kerman.html |
+| ترجمه شفاهی کرمان (interpretation, dedicated article) | interpretation-services-kerman.html |
+| ترجمه رسمی گواهی اشتغال به کار و اسناد بانکی | employment-bank-certificate-translation-kerman.html |
 
 ## Content gaps — candidate next topics
 
 Not yet covered by a dedicated page (source: services.html document-type
 cards still without an article link):
 
-- [ ] گواهی اشتغال به کار / اسناد بانکی (employment certificate, bank documents)
 - [ ] سند مالکیت خودرو (برگ سبز) (vehicle deed) — not on services.html yet either, worth adding as a card + article
 - [ ] ترجمه فوری کرمان — has a service card now (2026-09-10) but no dedicated article yet
-- [ ] ترجمه شفاهی کرمان — has a service card now (2026-09-10) but no dedicated article yet
 
 ## Notes
 
