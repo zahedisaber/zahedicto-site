@@ -48,6 +48,7 @@ periodically as volume grows and more individual queries clear the threshold.
 | ترجمه رسمی وکالت‌نامه و اقرارنامه | power-of-attorney-translation-kerman.html |
 | ترجمه شفاهی کرمان (interpretation, dedicated article) | interpretation-services-kerman.html |
 | ترجمه رسمی گواهی اشتغال به کار و اسناد بانکی | employment-bank-certificate-translation-kerman.html |
+| ترجمه فوری کرمان (express translation, dedicated article) | express-translation-kerman.html |
 
 ## Content gaps — candidate next topics
 
@@ -55,7 +56,6 @@ Not yet covered by a dedicated page (source: services.html document-type
 cards still without an article link):
 
 - [ ] سند مالکیت خودرو (برگ سبز) (vehicle deed) — not on services.html yet either, worth adding as a card + article
-- [ ] ترجمه فوری کرمان — has a service card now (2026-09-10) but no dedicated article yet
 
 ## Notes
 
