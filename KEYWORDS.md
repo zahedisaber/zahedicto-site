@@ -49,13 +49,24 @@ periodically as volume grows and more individual queries clear the threshold.
 | ترجمه شفاهی کرمان (interpretation, dedicated article) | interpretation-services-kerman.html |
 | ترجمه رسمی گواهی اشتغال به کار و اسناد بانکی | employment-bank-certificate-translation-kerman.html |
 | ترجمه فوری کرمان (express translation, dedicated article) | express-translation-kerman.html |
+| ترجمه رسمی سند مالکیت خودرو (برگ سبز) | vehicle-ownership-translation-kerman.html |
 
 ## Content gaps — candidate next topics
 
-Not yet covered by a dedicated page (source: services.html document-type
-cards still without an article link):
+Every services.html document-type card now has a dedicated article behind
+it — the original backlog from this file is cleared as of 2026-09-19.
 
-- [ ] سند مالکیت خودرو (برگ سبز) (vehicle deed) — not on services.html yet either, worth adding as a card + article
+Candidates for the next round (none confirmed yet, pick based on fresh
+GSC query data or genuine new service ideas rather than guessing):
+
+- [ ] Check Search Console's Queries report for any non-branded terms that
+      have started appearing but aren't targeted by an existing page yet.
+- [ ] Consider a second-level/FAQ-style article on a document type that
+      already has a guide, if a specific sub-question keeps coming up
+      (e.g. a particular embassy's attestation requirements).
+- [ ] سند تحصیلی خارج از کشور (foreign-issued diplomas needing translation
+      *into* Persian, the reverse direction of most existing articles) —
+      not yet covered and could be worth a dedicated page if demand shows up.
 
 ## Notes
 
