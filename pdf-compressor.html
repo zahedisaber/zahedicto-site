@@ -102,6 +102,14 @@
         "@type": "Answer",
         "text": "بله، این ابزار کاملاً رایگان و بدون محدودیت تعداد استفاده در دسترس است."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "چرا حجم نهایی حداکثر ۴ مگابایت است؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "چون این مقدار، سقف رایج حجم فایل در بسیاری از سامانه‌های آپلود سفارتخانه‌ها، دانشگاه‌ها و ادارات مهاجرت است. ابزار به‌طور خودکار میزان فشرده‌سازی را افزایش می‌دهد تا فایل به این سقف برسد، بدون آنکه وضوح تصویر کاهش یابد؛ برای مدارک بسیار حجیم یا چندصفحه‌ای، ممکن است حتی با بیشترین فشرده‌سازی نیز به این سقف نرسد."
+      }
     }
   ]
 }
@@ -119,14 +127,6 @@
   }
   .drop-zone:hover,.drop-zone.drag-over{border-color:var(--gold);background:#fffaf0;}
   .drop-zone .big-icon{font-size:2.4rem;margin-bottom:8px;}
-  .quality-options{display:grid;gap:10px;margin:18px 0;}
-  .quality-option{
-    display:flex;align-items:center;gap:10px;
-    border:1px solid var(--border);border-radius:10px;
-    padding:12px 14px;cursor:pointer;
-  }
-  .quality-option.selected{border-color:var(--gold);background:#fffaf0;}
-  .quality-option input{accent-color:var(--gold);}
   .progress-wrap{margin:18px 0;display:none;}
   .progress-bar-outer{background:#eee;border-radius:8px;height:10px;overflow:hidden;}
   .progress-bar-inner{background:var(--gold);height:100%;width:0%;transition:width .2s;}
@@ -190,28 +190,13 @@
           <p class="muted" style="margin:0;">حجم اصلی: <span id="originalSize"></span></p>
         </div>
 
-        <div id="qualitySection" style="display:none;">
-          <p style="margin:18px 0 8px;font-weight:700;">سطح فشرده‌سازی را انتخاب کنید:</p>
-          <p class="muted" style="margin:0 0 10px;font-size:.85rem;">وضوح (DPI) تصویر در هر سه حالت یکسان و بدون کاهش باقی می‌ماند — این گزینه فقط میزان فشرده‌سازی JPEG را تغییر می‌دهد.</p>
-          <div class="quality-options" role="radiogroup">
-            <label class="quality-option" data-level="high">
-              <input type="radio" name="quality" value="high">
-              <span><b>کیفیت بالا</b> — کاهش کم، مناسب وقتی خوانایی جزئیات مهم است</span>
-            </label>
-            <label class="quality-option selected" data-level="medium">
-              <input type="radio" name="quality" value="medium" checked>
-              <span><b>متوسط (پیشنهادی)</b> — تعادل خوب بین حجم و کیفیت</span>
-            </label>
-            <label class="quality-option" data-level="max">
-              <input type="radio" name="quality" value="max">
-              <span><b>حداکثر فشرده‌سازی</b> — کمترین حجم، کیفیت پایین‌تر</span>
-            </label>
-          </div>
-          <button type="button" id="compressBtn" class="btn btn-gold" style="width:100%;justify-content:center;">کاهش حجم فایل</button>
+        <div id="actionSection" style="display:none;">
+          <p class="muted" style="margin:18px 0 14px;font-size:.88rem;">این ابزار به‌طور خودکار فایل را فشرده می‌کند تا حجم نهایی به <b>حداکثر ۴ مگابایت</b> برسد — وضوح (DPI) تصویر در این فرایند هرگز کاهش نمی‌یابد؛ فقط میزان فشرده‌سازی JPEG به‌تدریج افزایش می‌یابد تا به این هدف برسد.</p>
+          <button type="button" id="compressBtn" class="btn btn-gold" style="width:100%;justify-content:center;">کاهش حجم فایل (حداکثر ۴ مگابایت)</button>
         </div>
 
         <div id="progressWrap" class="progress-wrap">
-          <p id="progressLabel" class="muted" style="margin:0 0 8px;font-size:.9rem;">در حال پردازش صفحه ۱...</p>
+          <p id="progressLabel" class="muted" style="margin:0 0 8px;font-size:.9rem;">در حال پردازش...</p>
           <div class="progress-bar-outer"><div id="progressBar" class="progress-bar-inner"></div></div>
         </div>
 
@@ -221,6 +206,7 @@
             <span>حجم جدید: <b id="resSizeAfter"></b></span>
             <span style="color:#1a7a3a;"><b id="resPercent"></b></span>
           </div>
+          <p id="resWarning" style="display:none;margin:0 0 12px;font-size:.85rem;color:#8a5a1a;background:#fff4e0;border-radius:8px;padding:10px 12px;"></p>
           <a id="downloadLink" class="btn btn-gold" style="width:100%;justify-content:center;" download>دانلود فایل فشرده‌شده ←</a>
         </div>
 
@@ -231,10 +217,10 @@
 
       <div class="card" style="max-width:620px;margin:24px auto 0;">
         <div class="card" style="border-color:var(--gold);margin-bottom:16px;">
-          <p style="margin:0;"><b>پاسخ کوتاه:</b> این ابزار رایگان، PDF اسکن‌شده شما را در همین مرورگر (بدون آپلود) به تصویر فشرده تبدیل می‌کند تا حجم فایل برای ایمیل یا آپلود در سامانه‌های سفارت و دانشگاه کاهش یابد.</p>
+          <p style="margin:0;"><b>پاسخ کوتاه:</b> این ابزار رایگان، PDF اسکن‌شده شما را در همین مرورگر (بدون آپلود) فشرده می‌کند تا حجم فایل به حداکثر ۴ مگابایت — سقف رایج سامانه‌های سفارت و دانشگاه — برسد، بدون کاهش وضوح تصویر.</p>
         </div>
         <h2 style="font-size:1.1rem;">این ابزار برای چه کاری مناسب است؟</h2>
-        <p class="muted">بسیاری از سامانه‌های سفارتخانه‌ها، دانشگاه‌ها و ادارات مهاجرت محدودیت حجم فایل دارند، در حالی‌که اسکن مدارک رسمی (مانند شناسنامه، ریزنمرات یا سند ازدواج) گاهی حجم بالایی پیدا می‌کند. این ابزار با کاهش کیفیت تصویر هر صفحه در حد قابل‌قبول، حجم فایل نهایی را به‌طور قابل‌توجهی کاهش می‌دهد — بدون نیاز به نصب نرم‌افزار یا ارسال مدرک به جایی.</p>
+        <p class="muted">بسیاری از سامانه‌های سفارتخانه‌ها، دانشگاه‌ها و ادارات مهاجرت محدودیت حجم فایل — معمولاً حدود ۴ مگابایت — دارند، در حالی‌که اسکن مدارک رسمی (مانند شناسنامه، ریزنمرات یا سند ازدواج) گاهی حجم بالایی پیدا می‌کند. این ابزار به‌طور خودکار میزان فشرده‌سازی تصویر هر صفحه را افزایش می‌دهد تا حجم فایل زیر این سقف برسد، بدون آنکه وضوح (DPI) تصویر کاهش یابد — بدون نیاز به نصب نرم‌افزار یا ارسال مدرک به جایی.</p>
         <p class="muted">توجه: چون این ابزار هر صفحه را به تصویر تبدیل می‌کند، برای فایل‌های PDF اسکن‌شده بهترین نتیجه را دارد. اگر فایل شما از ابتدا متنی (قابل انتخاب و کپی) است، این ابزار آن قابلیت را از بین می‌برد.</p>
       </div>
     </div>
