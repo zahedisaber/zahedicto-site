@@ -5,10 +5,17 @@ import * as pdfjsLib from './pdf.min.mjs';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/js/pdf.worker.min.mjs';
 
+// Fixed render resolution for every quality level — about 216 DPI relative
+// to the page's declared physical size (PDF points are 1/72 inch, so
+// scale 3.0 == 3.0 * 72 = 216 pixels per inch). This is comfortably above
+// typical scan resolutions (150-300 DPI), so the "quality" choice below
+// only ever trades off JPEG compression strength, never resolution/DPI.
+const RENDER_SCALE = 3.0;
+
 const QUALITY_PRESETS = {
-  high:   { scale: 1.6, jpegQuality: 0.82 },
-  medium: { scale: 1.25, jpegQuality: 0.62 },
-  max:    { scale: 1.0,  jpegQuality: 0.4 },
+  high:   { jpegQuality: 0.85 },
+  medium: { jpegQuality: 0.65 },
+  max:    { jpegQuality: 0.45 },
 };
 
 const dropZone = document.getElementById('dropZone');
@@ -100,25 +107,38 @@ async function compressPdf(file, preset, onProgress) {
   for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
     onProgress(pageNum, pdf.numPages);
     const page = await pdf.getPage(pageNum);
-    const viewport = page.getViewport({ scale: preset.scale });
 
+    // The page's true physical size, in PDF points (1/72 inch) — this is
+    // what the output page box must match so the document keeps its real
+    // printed size, independent of how many pixels we render it at.
+    const basePageViewport = page.getViewport({ scale: 1 });
+    const pageWidthPt = basePageViewport.width;
+    const pageHeightPt = basePageViewport.height;
+
+    // Render at a fixed high resolution (RENDER_SCALE), never tied to the
+    // selected quality — quality only controls JPEG compression below.
+    const renderViewport = page.getViewport({ scale: RENDER_SCALE });
     const canvas = document.createElement('canvas');
-    canvas.width = Math.ceil(viewport.width);
-    canvas.height = Math.ceil(viewport.height);
+    canvas.width = Math.ceil(renderViewport.width);
+    canvas.height = Math.ceil(renderViewport.height);
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    await page.render({ canvasContext: ctx, viewport }).promise;
+    await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
 
     const imgData = canvas.toDataURL('image/jpeg', preset.jpegQuality);
-    const orientation = canvas.width > canvas.height ? 'l' : 'p';
+    const orientation = pageWidthPt > pageHeightPt ? 'l' : 'p';
 
     if (!outputPdf) {
-      outputPdf = new jsPDF({ orientation, unit: 'pt', format: [canvas.width, canvas.height] });
+      outputPdf = new jsPDF({ orientation, unit: 'pt', format: [pageWidthPt, pageHeightPt] });
     } else {
-      outputPdf.addPage([canvas.width, canvas.height], orientation);
+      outputPdf.addPage([pageWidthPt, pageHeightPt], orientation);
     }
-    outputPdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
+    // The image is embedded at its full RENDER_SCALE pixel resolution
+    // inside a page box sized at the original physical dimensions — that
+    // combination is exactly what gives the output its DPI, and it never
+    // drops below the original page's resolution.
+    outputPdf.addImage(imgData, 'JPEG', 0, 0, pageWidthPt, pageHeightPt);
 
     // Release canvas memory before the next page.
     canvas.width = 0;
